@@ -1,7 +1,8 @@
 const dotenv = require('dotenv');
 dotenv.config({ path: './config.env' });
-const morgan = require('morgan');
+const cors = require('cors');
 const express = require('express');
+const morgan = require('morgan');
 const helmet = require('helmet');
 
 const { createServer } = require('http');
@@ -9,14 +10,10 @@ const { createServer } = require('http');
 const PORT = process.env.PORT || 8000;
 const app = express();
 
-// securing req headers
-app.use(helmet());
-
-// setup the logger
-app.use(morgan('tiny'));
-
-// Parse incoming requests with JSON payloads.
-app.use(express.json({ limit: '30kb' }));
+app.use(cors()); // Enable All CORS Requests
+app.use(helmet()); // securing req headers
+app.use(morgan('tiny')); // setup the logger
+app.use(express.json({ limit: '30kb' })); // Parse incoming requests with JSON payloads.
 
 app.get('/', (req, res, next) => {
   res.status(200).json({
@@ -51,9 +48,9 @@ app.get('/fetch', async (req, res, next) => {
     res.status(200).json(data);
   } catch (error) {
     res.status(500).json({
-      status: 'success',
+      status: 'failed',
       code: 500,
-      message: 'failed',
+      message: 'failed fetching data',
       data: {
         link: 'https://github.com/endeavourmonk/cors-proxy/blob/master/README.md',
       },
