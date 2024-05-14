@@ -8,7 +8,6 @@ const { createServer } = require('http');
 
 const PORT = process.env.PORT || 8000;
 const app = express();
-const server = createServer(app);
 
 // securing req headers
 app.use(helmet());
@@ -65,8 +64,8 @@ app.use((err, req, res, next) => {
   });
 });
 
-server.listen(PORT, () => {
+app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
-module.exports = server;
+module.exports = app;
