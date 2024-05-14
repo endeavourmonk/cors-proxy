@@ -4,8 +4,8 @@
   "description": "express app",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon src/index.js",
-    "start": "node src/index.js",
+    "dev": "nodemon api/index.js",
+    "start": "node index.js",
     "test": "jest"
   },
   "author": "Ujjawal",
