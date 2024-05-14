@@ -2,6 +2,10 @@
 
 This is a simple CORS Proxy API built with Node.js and Express.
 
+## Production Link
+
+[https://cors-proxyy.vercel.app/](https://cors-proxyy.vercel.app/)
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
@@ -22,20 +26,19 @@ These instructions will get you a copy of the project up and running on your loc
 Run the server using the following command:
 
 ```bash
-npm start
+npm dev
 ```
 
 ## API Endpoints
 
-- `GET /api/cors-proxy/`: Returns Hello World!
-- `GET /api/cors-proxy/fetch`: Fetches data from a provided URL. The URL should be passed as query parameters.
+- `GET /`: Returns Hello World!
+- `GET /fetch`: Fetches data from a provided URL. The URL should be passed as query parameters.
 
 ## Build With
 
 - Node.js
 - Express
 - Helmet
-- express-mongo-sanitize
 
 ### Error Handling
 
