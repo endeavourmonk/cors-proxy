@@ -1,9 +1,9 @@
 const dotenv = require('dotenv');
 dotenv.config({ path: './config.env' });
-
+const morgan = require('morgan');
 const express = require('express');
 const helmet = require('helmet');
-// const mongoSanitize = require('express-mongo-sanitize');
+
 const { createServer } = require('http');
 
 const PORT = process.env.PORT || 8000;
@@ -12,6 +12,9 @@ const server = createServer(app);
 
 // securing req headers
 app.use(helmet());
+
+// setup the logger
+app.use(morgan('tiny'));
 
 // Parse incoming requests with JSON payloads.
 app.use(express.json({ limit: '30kb' }));
