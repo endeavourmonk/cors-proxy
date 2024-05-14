@@ -25,13 +25,13 @@ app.use(
   }),
 );
 
-app.get('/api/cors-proxy/', (req, res, next) => {
+app.get('/', (req, res, next) => {
   res.status(200).json({
     message: 'Hello World!',
   });
 });
 
-app.get('/api/cors-proxy/fetch', async (req, res, next) => {
+app.get('/fetch', async (req, res, next) => {
   try {
     let url = '';
     for (key in req.query) {
