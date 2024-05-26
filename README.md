@@ -1,10 +1,18 @@
 # CORS Proxy API
 
-This is a simple CORS Proxy API built with Node.js and Express.
+This CORS proxy API is designed to bridge the gap between your frontend application and 3rd-party APIs that have CORS restrictions. It acts as an intermediary, allowing your frontend to make requests to these APIs without encountering CORS (Cross-Origin Resource Sharing) errors.
 
 ## Production Link
 
 [https://cors-proxyy.vercel.app/](https://cors-proxyy.vercel.app/)
+
+## How It Works ?
+
+1. **Frontend Request:** Your frontend application makes a request to this proxy API endpoint.
+2. **Proxy Forwards:** The proxy API receives the request and forwards it (including any headers) to the desired 3rd-party API.
+3. **Response Retrieval:** The proxy captures the response from the 3rd-party API.
+4. **CORS Fix (Optional):** If necessary, the proxy modifies the response headers to include the appropriate Access-Control-Allow-\* headers, allowing your frontend to access the data.
+5. **Frontend Response:** The proxy forwards the processed response back to your frontend application.
 
 ## Getting Started
 
@@ -38,7 +46,9 @@ npm dev
 
 - Node.js
 - Express
+- CORS
 - Helmet
+- Morgan
 
 ### Error Handling
 
